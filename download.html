@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>تحميل الملف</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Tahoma', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      padding: 20px;
+      text-align: center;
+    }
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 400px;
+      margin: auto;
+    }
+    img {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+    }
+    button {
+      background-color: #0066cc;
+      color: white;
+      padding: 12px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #004c99;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>مرحبًا <span id="name">...</span> 👋</h2>
+    <img id="photo" src="" alt="الصورة الشخصية" />
+    <p><b>الاسم المستخدم:</b> <span id="username"></span></p>
+    <p><b>المعرف:</b> <span id="userid"></span></p>
+    <a id="downloadLink" target="_blank"><button>📥 تحميل الملف</button></a>
+    <a href="https://t.me/ueoot" target="_blank"><button>👤 المطور</button></a>
+  </div>
+
+  <script>
+    function getParam(name) {
+      return new URLSearchParams(window.location.search).get(name);
+    }
+
+    const name = getParam("name") || "مستخدم";
+    const username = getParam("username") || "غير معروف";
+    const userid = getParam("id") || "غير معروف";
+    const photo = getParam("photo") || "https://t.me/i/userpic/320/placeholder.jpg";
+    const file = getParam("file");
+
+    document.getElementById("name").innerText = name;
+    document.getElementById("username").innerText = username;
+    document.getElementById("userid").innerText = userid;
+    document.getElementById("photo").src = photo;
+
+    if (file) {
+      const url = `https://drive.google.com/uc?export=download&id=${file}`;
+      document.getElementById("downloadLink").href = url;
+    } else {
+      document.getElementById("downloadLink").innerHTML = "<button disabled>لا يوجد ملف</button>";
+    }
+  </script>
+</body>
+</html>
