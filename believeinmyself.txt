@@ -1,2 +1,3 @@
-file123|1-DUXMilHF9YUlXXIyLF96bOb8wOiHiTY|شرح كتاب التوحيد
-file456|1-ABCDEF123456789|مقدمة في الإلحاد
+file123|https://drive.google.com/uc?export=download&id=1AbCDefGhijkLmnoP
+mybook|https://archive.org/download/somepdf/somebook.pdf
+music1|https://example.com/music.mp3
